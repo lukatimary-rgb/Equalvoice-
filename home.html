@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EqualVoice Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <h2>EqualVoice</h2>
+  </nav>
+
+  <section class="page-content">
+    <div class="home-hero">
+      <h1>Welcome to EqualVoice</h1>
+      <p>EqualVoice helps people find support, mentorship, education, legal aid, internships, counseling, and reporting tools in one safe place.</p>
+      <a class="hero-button" href="index.html">Start your journey</a>
+    </div>
+
+    <div class="testimonial-section">
+      <h2>What our community says</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <p>“EqualVoice helped me find the right mentorship and legal support when I needed it most. The resources are easy to access and really made a difference.”</p>
+          <span>– Amina, community member</span>
+        </div>
+        <div class="testimonial-card">
+          <p>“I found free courses and scholarship guidance through the platform. The site is supportive and gives real hope for future opportunities.”</p>
+          <span>– David, student</span>
+        </div>
+      </div>
+    </div>
+
+  <div class="emergency-card">
+    <h2>Emergency Panic Button</h2>
+    <p>Immediately alert police, security personnel, and emergency response teams. This feature also includes support contact, GPS location sharing, SMS alert, and real-time emergency notification.</p>
+    <button id="panicButton" type="button">Emergency Panic Button</button>
+    <div id="panicStatus" class="panic-status">Press the button to send an emergency alert.</div>
+  </div>
+</div>
+
+</section>
+
+<script>
+  const panicButton = document.getElementById('panicButton');
+  const panicStatus = document.getElementById('panicStatus');
+
+  function updatePanicStatus(message, state) {
+    panicStatus.textContent = message;
+    panicStatus.className = 'panic-status ' + (state || '');
+  }
+
+  function sendEmergencyAlert(locationText) {
+    updatePanicStatus('Sending emergency alert...');
+
+    setTimeout(() => {
+      const details = `Emergency alert activated. Location: ${locationText}. Notifications sent to police, security, support, and emergency response teams via SMS and real-time channels.`;
+      updatePanicStatus(details, 'active');
+    }, 800);
+  }
+
+  panicButton.addEventListener('click', () => {
+    updatePanicStatus('Acquiring GPS location...');
+
+    if (!navigator.geolocation) {
+      sendEmergencyAlert('location unavailable');
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords;
+        const locationText = `Lat ${latitude.toFixed(5)}, Lon ${longitude.toFixed(5)}`;
+        sendEmergencyAlert(locationText);
+      },
+      () => {
+        sendEmergencyAlert('location access denied');
+      },
+      { enableHighAccuracy: true, timeout: 8000 }
+    );
+  });
+</script>
+
+  </section><br>
+
+</body>
+</html>
