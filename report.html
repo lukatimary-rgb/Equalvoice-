@@ -2,66 +2,172 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
-
-  <title>Mentorship</title>
-
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Incident | EqualVoice</title>
+  <link rel="icon" type="image/png" href="images/equal voice logo.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/app.js"></script>
 </head>
 
-<body>
+<body class="page-shell" data-page="report">
+  <header class="site-header">
+    <div class="topbar">
+      <a class="brand" href="index.html">EqualVoice</a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="report.html">Report</a></li>
+          <li><a class="nav-link" href="my-reports.html">My Reports</a></li>
+          <li><a class="nav-link" href="support.html">Support</a></li>
+          <li><a class="nav-link" href="emergency.html">Emergency</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<nav>
+  <main class="main-content" style="display: grid; place-items: center;">
+    <form id="incidentReportForm" novalidate style="max-width: 700px; width: 100%; display: grid; gap: 1.5rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 22px; padding: 2rem; background: rgba(255,255,255,0.05);">
+      <div style="text-align: center; margin-bottom: 0.5rem;">
+        <h2 class="section-title">File Your Report</h2>
+        <p class="hero-copy">Complete this form at your own pace. All fields are optional—share what you feel comfortable with. Your safety and privacy are our priority.</p>
+      </div>
+        <!-- Personal Information Section -->
+        <div class="form-section" style="margin-bottom: 2rem;">
+          <h3 style="margin-top: 0; margin-bottom: 1rem;">Personal Details</h3>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="reporterName">Your name </label>
+              <input id="reporterName" type="text" placeholder="Leave blank to report anonymously">
+            </div>
+            <div class="form-field">
+              <label for="reporterEmail">Email address </label>
+              <input id="reporterEmail" type="email" placeholder="For status updates about your report">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="reporterPhone">Phone number </label>
+            <input id="reporterPhone" type="tel" placeholder="We'll keep this confidential">
+          </div>
+          <div class="checkbox-row">
+            <input id="anonymousReport" type="checkbox">
+            <label for="anonymousReport">I want to submit this report anonymously</label>
+          </div>
+        </div>
 
-  <h2>EqualVoice</h2>
+        <!-- Incident Type Section -->
+        <div class="form-section" style="margin-bottom: 2rem;">
+          <h3 style="margin-top: 0; margin-bottom: 1rem;">What type of incident are you reporting?</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">You can select multiple types if applicable.</p>
+          <div class="checkbox-group" style="display: grid; gap: 0.75rem;">
+            <div class="checkbox-row">
+              <input id="incidentWorkplace" type="checkbox" name="incidentType" value="Workplace discrimination">
+              <label for="incidentWorkplace">Workplace discrimination</label>
+            </div>
+            <div class="checkbox-row">
+              <input id="incidentSchool" type="checkbox" name="incidentType" value="School discrimination">
+              <label for="incidentSchool">School discrimination</label>
+            </div>
+            <div class="checkbox-row">
+              <input id="incidentHarassment" type="checkbox" name="incidentType" value="Harassment">
+              <label for="incidentHarassment">Harassment</label>
+            </div>
+            <div class="checkbox-row">
+              <input id="incidentViolence" type="checkbox" name="incidentType" value="Gender-based violence">
+              <label for="incidentViolence">Gender-based violence</label>
+            </div>
+            <div class="checkbox-row">
+              <input id="incidentLGBTQ" type="checkbox" name="incidentType" value="LGBTQ discrimination">
+              <label for="incidentLGBTQ">LGBTQ+ discrimination</label>
+            </div>
+            <div class="checkbox-row">
+              <input id="incidentOther" type="checkbox" name="incidentType" value="Other">
+              <label for="incidentOther">Other</label>
+            </div>
+          </div>
+        </div>
 
-  <ul>
-    <li><a href="home.html">Home</a></li>
-    <li><a href="index.html">Register</a></li>
-    <li><a href="mentorship.html">Mentorship</a></li>
-    <li><a href="counseling.html">Counseling</a></li>
-    <li><a href="legal.html">Legal</a></li>
-    <li><a href="internships.html">Internships</a></li>
-    <li><a href="education.html">Education</a></li>
-    <li><a href="report.html">Report</a></li>
-  </ul>
+        <!-- Incident Details Section -->
+        <div class="form-section" style="margin-bottom: 2rem;">
+          <h3 style="margin-top: 0; margin-bottom: 1rem;">Incident Details</h3>
+          <div class="form-field">
+            <label for="incidentDate">When did this happen? (optional)</label>
+            <input id="incidentDate" type="date">
+          </div>
+          <div class="form-field">
+            <label for="incidentLocation">Where did this happen? (optional)</label>
+            <input id="incidentLocation" type="text" placeholder="Location, building, or context">
+          </div>
+          <div class="form-field wide">
+            <label for="incidentDescription">Describe what happened (optional)</label>
+            <textarea id="incidentDescription" placeholder="Share as much detail as you feel comfortable with. Include what happened, who was involved, and any relevant context."></textarea>
+          </div>
+          <div class="form-field wide">
+            <label for="incidentWitnesses">Were there any witnesses? (optional)</label>
+            <textarea id="incidentWitnesses" placeholder="Names, descriptions, or any identifying information about people who witnessed this incident"></textarea>
+          </div>
+        </div>
 
-</nav><br>
+        <!-- Evidence Section -->
+        <div class="form-section" style="margin-bottom: 2rem;">
+          <h3 style="margin-top: 0; margin-bottom: 1rem;">Upload Evidence</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Add photos, documents, messages, or other evidence (all optional). We accept images, PDFs, and documents.</p>
+          
+          <div class="file-upload-area" style="border: 2px dashed rgba(212, 109, 228, 0.4); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 1.5rem; cursor: pointer; transition: all var(--transition);">
+            <input id="incidentEvidence" type="file" multiple accept="image/*,.pdf,.doc,.docx" style="display: none;">
+            <div style="font-size: 2rem; margin-bottom: 0.75rem;">📸 📄</div>
+            <div style="font-weight: 600; margin-bottom: 0.25rem;">Click to upload or drag and drop</div>
+            <div style="color: var(--text-muted); font-size: 0.9rem;">Photos, PDFs, documents (up to 10 files)</div>
+          </div>
 
-<section class="page-content">
+          <div id="evidenceList" style="display: grid; gap: 0.75rem;">
+            <div style="color: var(--text-muted); text-align: center; padding: 1rem;">No files selected yet</div>
+          </div>
+        </div>
 
-<h1>Report Discrimination</h1>
+        <!-- Support Resources Section -->
+        <div class="form-section" style="margin-bottom: 2rem;">
+          <h3 style="margin-top: 0; margin-bottom: 1rem;">Do You Need Support?</h3>
+          <div class="checkbox-row">
+            <input id="needsCounseling" type="checkbox" name="support" value="counseling">
+            <label for="needsCounseling">I would like information about counseling services</label>
+          </div>
+          <div class="checkbox-row">
+            <input id="needsLegal" type="checkbox" name="support" value="legal">
+            <label for="needsLegal">I would like information about legal resources</label>
+          </div>
+          <div class="checkbox-row">
+            <input id="needsSafetyPlanning" type="checkbox" name="support" value="safety">
+            <label for="needsSafetyPlanning">I need help with safety planning</label>
+          </div>
+        </div>
 
-<p>
-Users can safely report harassment,
-violence, or discrimination incidents.
-</p>
+        <!-- Summary Section -->
+        <div class="form-section" style="margin-bottom: 2rem; background: rgba(212, 109, 228, 0.08); border: 1px solid rgba(212, 109, 228, 0.2); border-radius: 16px; padding: 1.5rem;">
+          <h3 style="margin-top: 0;">Report Summary</h3>
+          <div id="reportSummary" style="display: grid; gap: 0.75rem; color: var(--text-muted);">
+            <div><strong style="color: var(--text);">Incident Types:</strong> <span id="summaryTypes">Not selected</span></div>
+            <div><strong style="color: var(--text);">Anonymous:</strong> <span id="summaryAnonymous">No</span></div>
+            <div><strong style="color: var(--text);">Files Uploaded:</strong> <span id="summaryFileCount">0 files</span></div>
+          </div>
+        </div>
 
-<form class="report-form">
+        <!-- Recommendations Section -->
+        <div id="recommendationsSection" style="margin-bottom: 2rem; display: none; background: rgba(86, 195, 255, 0.08); border: 1px solid rgba(86, 195, 255, 0.2); border-radius: 16px; padding: 1.5rem;">
+          <h3 style="margin-top: 0;">Recommended Next Steps</h3>
+          <ul id="recommendationList" class="list-bullet" style="color: var(--text-muted);"></ul>
+        </div>
 
-<input type="text"
-placeholder="Full Name">
+        <!-- Action Buttons -->
+        <div class="button-row wide">
+          <button type="reset" class="secondary-button">Clear Form</button>
+          <button type="submit" class="cta-button">Submit Report</button>
+        </div>
 
-<input type="email"
-placeholder="Email Address">
+        <!-- Status Message -->
+        <div id="reportStatusBanner" class="status-banner" style="margin-top: 1.5rem; display: none;"></div>
+      </form>
+    </main>
 
-<select>
-<option>Type of Discrimination</option>
-<option>Workplace</option>
-<option>School</option>
-<option>Online Harassment</option>
-<option>Gender Violence</option>
-</select>
-
-<textarea rows="6"
-placeholder="Describe the incident"></textarea>
-
-<button type="submit">
-Submit Report
-</button>
-
-</form>
-
+  <footer class="site-footer">EqualVoice © 2026 · Privacy-first reporting for harassment, discrimination, and workplace/school inequality.</footer>
 </body>
 </html>
