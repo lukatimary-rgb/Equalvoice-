@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Reports | EqualVoice</title>
+  <link rel="icon" type="image/png" href="images/equal voice logo.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body class="page-shell" data-page="my-reports">
+  <header class="site-header">
+    <div class="topbar">
+      <a class="brand" href="index.html">EqualVoice</a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="report.html">Report</a></li>
+          <li><a class="nav-link" href="my-reports.html">My Reports</a></li>
+          <li><a class="nav-link" href="support.html">Support</a></li>
+          <li><a class="nav-link" href="emergency.html">Emergency</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="dashboard-container">
+      <!-- Dashboard Header -->
+      <div class="dashboard-header">
+        <div class="dashboard-header-content">
+          <h1>My Reports</h1>
+          <p class="dashboard-header-description">Track, review, and manage your incident reports in one secure place. All data is stored locally in your browser.</p>
+        </div>
+        <div class="dashboard-header-actions">
+          <a href="report.html" class="btn-primary">+ New Report</a>
+        </div>
+      </div>
+
+      <!-- Stats Summary -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <p class="stat-number" id="totalCount">0</p>
+          <p class="stat-label">Total Reports</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number" id="submittedCount">0</p>
+          <p class="stat-label">Submitted</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number" id="draftCount">0</p>
+          <p class="stat-label">Drafts</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number" id="resolvedCount">0</p>
+          <p class="stat-label">Resolved</p>
+        </div>
+      </div>
+
+      <!-- Controls Section -->
+      <div class="controls-section">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchReports" placeholder="Search reports...">
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Reports</button>
+        <button class="filter-tab" data-filter="draft">Drafts</button>
+        <button class="filter-tab" data-filter="submitted">Submitted</button>
+        <button class="filter-tab" data-filter="resolved">Resolved</button>
+      </div>
+
+      <!-- Reports List -->
+      <div id="reportList" class="reports-list"></div>
+
+      <!-- Empty State -->
+      <div id="noReportsState" class="empty-state" style="display: none;">
+        <div class="empty-state-icon">📋</div>
+        <h2 class="empty-state-title">No reports yet</h2>
+        <p class="empty-state-description">Start documenting incidents safely. Your reports will appear here with all details and status updates.</p>
+        <div class="empty-state-actions">
+          <a href="report.html" class="btn-primary">Create First Report</a>
+          <a href="support.html" class="btn-secondary">Get Support</a>
+        </div>
+      </div>
+
+      <!-- Information Banner -->
+      <div class="info-banner">
+        <div class="info-banner-icon">🔒</div>
+        <div class="info-banner-content">
+          <p class="info-banner-title">Your privacy is protected</p>
+          <p class="info-banner-text">All reports are stored securely in your browser. No data is sent to external servers unless you choose to connect your account. Future backend integration will use end-to-end encryption.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">EqualVoice © 2026 · Privacy-first reporting for harassment, discrimination, and abuse.</footer>
+
+  <script>
+    // Enhanced dashboard interactivity
+    const filters = document.querySelectorAll('.filter-tab');
+    const searchInput = document.getElementById('searchReports');
+    let currentFilter = 'all';
+    let currentSearch = '';
+
+    filters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        filters.forEach(f => f.classList.remove('active'));
+        filter.classList.add('active');
+        currentFilter = filter.dataset.filter;
+        renderReports();
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value.toLowerCase();
+      renderReports();
+    });
+
+    function updateStats() {
+      const reports = loadReports();
+      const submitted = reports.filter(r => r.status === 'Submitted').length;
+      const draft = reports.filter(r => r.status === 'Draft').length;
+      const resolved = reports.filter(r => r.status === 'Resolved').length;
+
+      document.getElementById('totalCount').textContent = reports.length;
+      document.getElementById('submittedCount').textContent = submitted;
+      document.getElementById('draftCount').textContent = draft;
+      document.getElementById('resolvedCount').textContent = resolved;
+    }
+
+    function renderReports() {
+      const reports = loadReports();
+      const container = document.getElementById('reportList');
+      const emptyState = document.getElementById('noReportsState');
+
+      let filtered = reports.filter(r => {
+        const matchesFilter = currentFilter === 'all' || r.status.toLowerCase() === currentFilter;
+        const matchesSearch = currentSearch === '' || 
+          r.types?.join(' ').toLowerCase().includes(currentSearch) ||
+          r.description?.toLowerCase().includes(currentSearch) ||
+          r.id?.toLowerCase().includes(currentSearch);
+        return matchesFilter && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        emptyState.style.display = 'grid';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      container.innerHTML = filtered.map(report => {
+        const types = Array.isArray(report.types) ? report.types.join(', ') : report.type || 'Report';
+        const date = new Date(report.createdAt);
+        const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const statusClass = `status-${report.status.toLowerCase()}`;
+
+        return `
+          <div class="report-row">
+            <div class="report-info">
+              <h3 class="report-title">${types}</h3>
+              <div class="report-meta">
+                <div class="report-meta-item">
+                  <span class="report-meta-label">ID:</span>
+                  <span>${report.id}</span>
+                </div>
+                <div class="report-meta-item">
+                  <span class="report-meta-label">Created:</span>
+                  <span>${formattedDate}</span>
+                </div>
+                ${report.description ? `<div class="report-meta-item"><span class="report-meta-label">Details:</span><span>${report.description.substring(0, 40)}...</span></div>` : ''}
+              </div>
+            </div>
+            <div class="status-badge ${statusClass}">${report.status}</div>
+            <div class="report-actions">
+              <button class="action-btn" onclick="viewReport('${report.id}')">View</button>
+            </div>
+            <button class="action-menu-btn" title="More options">⋮</button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function viewReport(reportId) {
+      alert(`View report: ${reportId}`);
+    }
+
+    // Initialize
+    updateStats();
+    renderReports();
+  </script>
+</body>
+</html>

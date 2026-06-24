@@ -2,129 +2,205 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
-
-  <title>EqualVoice</title>
-
-<link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EqualVoice | Safety Reporting</title>
+   <link rel="icon" type="image/png" href="images/equal voice logo.png">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
-<body>
-
-  <nav>
-      <h2>EqualVoice</h2>
-  <ul>
-
-    <li><a href="home.html">Home</a></li>
-
-    <li><a href="index.html">Register</a></li>
-
-    <li><a href="mentorship.html">Mentorship</a></li>
-
-    <li><a href="counseling.html">Counseling</a></li>
-
-    <li><a href="legal.html">Legal Support</a></li>
-
-    <li><a href="internships.html">Internships</a></li>
-
-    <li><a href="education.html">Education</a></li>
-
-    <li><a href="report.html">Report</a></li>
-
-  </ul>
-
-</nav><br>
-
-
-  <div class="container">
-
-    <div class="form-card">
-
-      <h1>EqualVoice</h1>
-
-      <p class="subtitle">
-        Empowering equality through technology and inclusion
-      </p>
-
-      <form>
-
-        <div class="input-group">
-          <label>Full Name</label>
-          <input type="text" 
-          placeholder="Enter your full name">
-        </div>
-
-        <div class="input-group">
-          <label>Email Address</label>
-          <input type="email"
-          placeholder="Enter your email">
-        </div>
-
-        <div class="input-group">
-          <label>Phone Number</label>
-          <input type="tel"
-          placeholder="Enter phone number">
-        </div>
-
-        <div class="input-group">
-          <label>Gender Identity</label>
-
-          <select>
-            <option>Select Option</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Non-binary</option>
-            <option>Transgender</option>
-            <option>Prefer not to say</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label>Sexual Orientation</label>
-
-          <select>
-            <option>Select Option</option>
-            <option>Straight</option>
-            <option>Gay</option>
-            <option>Lesbian</option>
-            <option>Bisexual</option>
-            <option>Pansexual</option>
-            <option>Asexual</option>
-            <option>Prefer not to say</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label>Support Needed</label>
-
-          <select>
-            <option>Mentorship</option>
-            <option>Counseling</option>
-            <option>Legal Support</option>
-            <option>Internship Opportunities</option>
-            <option>Education Opportunities</option>
-            <option>Report Discrimination</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label>Tell Us More</label>
-
-          <textarea rows="5"
-          placeholder="Describe your situation or request"></textarea>
-        </div><br>
-
-        <button type="submit">
-          Submit Application
-        </button>
-
-      </form>
-
+<body class="page-shell" data-page="home">
+  <header class="site-header">
+    <div class="topbar">
+      <a class="brand" href="index.html">EqualVoice</a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="report.html">Report</a></li>
+          <li><a class="nav-link" href="my-reports.html">My Reports</a></li>
+          <li><a class="nav-link" href="support.html">Support</a></li>
+          <li><a class="nav-link" href="emergency.html">Emergency</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-  </div>
+  <main class="main-content">
+    <section class="hero">
+      <div>
+
+        <h2 class="hero-heading">Report Harassment,Discrimination, and Abuse Safely.</h2>
+        <p class="hero-copy">EqualVoice is a focused incident documentation platform built for confidentiality, trust, and real-world support. Start a guided report, preserve evidence, and access trusted help resources.</p>
+        <div class="hero-actions">
+          <a class="cta-button" href="report.html">Start Report</a>
+          <a class="secondary-button" href="support.html">Find Support</a>
+        </div>
+      </div>
+      <div class="hero-image">
+      
+          <img src="images/equal voice logo.png" alt="EqualVoice logo" > 
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="card-grid">
+      <article class="support-card">
+        <h2 class="section-title">How it works</h2>
+        <p class="card-copy">Choose your incident type, describe what happened, upload evidence, and receive safety recommendations. Get status updates from your report dashboard and keep your details secure.</p>
+          <img src="images/workflow.png" alt="Workflow illustration" >
+        </div>
+      </article>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="card-grid">
+      <article class="support-card">
+        <h2 class="section-title">Privacy & Confidentiality</h2>
+        <p class="card-copy">Your report can be anonymous. Local browser storage keeps your record only accessible to you, while future backend integration prepares secure encrypted storage.</p>
+       
+          <img src="images/privacy and confidentiality.jpg" alt="Privacy Icon">     
+    
+      </article>
+      <article class="support-card">
+        <h2 class="section-title">Trusted Response</h2>
+        <p class="card-copy">Save trusted contacts and use the emergency alert system if you need a fast way to tell someone you are at risk. The platform explains when geolocation is unavailable.</p>
+        
+           <img src="images/guidance.jpg" alt="response icon">
+       
+      </article>
+      <article class="support-card">
+        <h2 class="section-title">Clear Guidance</h2>
+        <p class="card-copy">Receive personalized recommendations for next steps based on the type of incident you report. The system supports work, school, violence, harassment, and LGBTQ-specific concerns.</p>
+        
+          <img src="images/guidance2.jpg" alt="Guidance Icon">
+       
+      </article>
+    </section>
+
+    <!-- Why EqualVoice Section -->
+    <section class="info-panel">
+      <h2 class="section-title">Why EqualVoice?</h2>
+      <ul class="list-bullet">
+        <li>Minimalist, mobile-first interface for quick reporting.</li>
+        <li>Accessible design with high contrast and keyboard support.</li>
+        <li>Prepared for authentication, secure uploads, and notifications.</li>
+      </ul>
+    </section>
+
+    <!-- Important Notice Section -->
+    <section class="alert-panel">
+      <h2 class="section-title">Important notice</h2>
+      <p class="panel-copy">This prototype stores reports locally for privacy and data protection. When connected to a backend, the system will support authenticated accounts, encrypted evidence storage, and trusted alerts.</p>
+    </section>
+
+    <!-- Community Section -->
+    <section style="margin-top: 2.5rem;">
+      <h2 class="section-title">Meet Our Community Heroes</h2>
+      <p class="hero-copy" style="margin-bottom: 1.5rem;">Brave individuals and advocates who are making a difference. Their stories inspire action and change.</p>
+    </section>
+
+    <!-- Featured Hero Section -->
+    <section class="featured-section">
+      <div class="featured-hero hero-profile">
+        <div class="hero-image">
+         
+            <img src="images/mary-anne.jpg" alt="Mary Anne photo">
+          
+        </div>
+        <h2 class="hero-name">Mary Anne</h2>
+        <p class="hero-role">Community Advocate & Founder</p>
+        <p class="hero-bio">Mary Anne started EqualVoice after witnessing countless individuals struggle to report harassment safely. With over 8 years of experience in victim advocacy, Mary Anne is committed to creating platforms that prioritize confidentiality and user empowerment.</p>
+        <div class="hero-testimonial">
+          "Everyone deserves to be heard without fear. EqualVoice exists because we believe that giving people the tools to document their truth is the first step toward real change."
+        </div>
+      </div>
+    </section>
+
+    <!-- Heroes Grid Section -->
+    <section style="margin-top: 2.5rem;">
+      <h3 class="section-title" style="font-size: 1.6rem;">Featured Champions</h3>
+    </section>
+
+    <section class="heroes-grid">
+      <!-- Hero Profile 1 -->
+      <div class="hero-card">
+        <div class="hero-image">
+          
+            <img src="images/kate.jpg" alt="Kate Mumba photo">
+          
+        </div>
+        <h3 class="hero-name">Kate Mumba</h3>
+        <p class="hero-role">Workplace Rights Advocate</p>
+        <p class="hero-bio">Kate works with organizations to establish better reporting mechanisms and create cultures of accountability.</p>
+        <div class="hero-testimonial">
+          "Having a safe way to document incidents changed everything for me and others I've helped."
+        </div>
+      </div>
+
+      <!-- Hero Profile 2 -->
+      <div class="hero-card">
+        <div class="hero-image">
+         
+            <img src="images/james williams.jpg" alt="James Williams photo">
+          
+        </div>
+        <h3 class="hero-name">James Williams</h3>
+        <p class="hero-role">School Safety Coordinator</p>
+        <p class="hero-bio">James has dedicated his career to ensuring safe school environments and helping young people navigate reporting systems.</p>
+        <div class="hero-testimonial">
+          "Students feel empowered when they know their reports will be taken seriously and kept confidential."
+        </div>
+      </div>
+
+      <!-- Hero Profile 3 -->
+      <div class="hero-card">
+        <div class="hero-image">
+         
+            <img src="images/priya.jpg" alt="Priya Patel photo">
+          
+        </div>
+        <h3 class="hero-name">Priya Patel</h3>
+        <p class="hero-role">LGBTQ+ Community Leader</p>
+        <p class="hero-bio">Priya creates safe spaces for LGBTQ+ individuals to report discrimination and access affirming support resources.</p>
+        <div class="hero-testimonial">
+          "EqualVoice gets it—our stories need platforms designed specifically for our experiences and safety."
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section style="margin-top: 3rem;">
+      <h3 class="section-title" style="font-size: 1.6rem;">Community Testimonials</h3>
+      <p class="hero-copy" style="max-width: 800px; margin-bottom: 2rem;">Hear directly from our community members about how EqualVoice has helped them find their voice.</p>
+    </section>
+
+    <section class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "I never thought I'd have the courage to report what happened to me. EqualVoice made it feel possible and safe. I'm so grateful."
+        </p>
+        <div class="testimonial-author">Sarah L.</div>
+        <div class="testimonial-role">Anonymous User</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "The anonymous reporting feature gave me the confidence to come forward. Knowing my safety was prioritized made all the difference."
+        </p>
+        <div class="testimonial-author">Jordan T.</div>
+        <div class="testimonial-role">Anonymous User</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "As an HR professional, I recommend EqualVoice to all our partner organizations. It's exactly what workplaces need."
+        </p>
+        <div class="testimonial-author">Michelle K.</div>
+        <div class="testimonial-role">HR Director</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">EqualVoice © 2026 · Privacy-first reporting for harassment, discrimination, and workplace/school inequality.</footer>
 </body>
 </html>
