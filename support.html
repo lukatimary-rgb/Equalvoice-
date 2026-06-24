@@ -92,54 +92,29 @@
 
 </section>
 
-<section class="support-grid">
-
-    <div class="support-card">
-        <div class="card-icon">💜</div>
-        <h3>Counseling Support</h3>
-        <p>
-            Access mental health resources, trauma-informed care,
-            and emotional recovery support.
-        </p>
-    </div>
-
-    <div class="support-card">
-        <div class="card-icon">⚖️</div>
-        <h3>Legal Guidance</h3>
-        <p>
-            Understand your rights and discover available legal
-            reporting and protection options.
-        </p>
-    </div>
-
-    <div class="support-card">
-        <div class="card-icon">🛡️</div>
-        <h3>Safety Planning</h3>
-        <p>
-            Build a personal safety plan and learn protective
-            steps after an incident.
-        </p>
-    </div>
-
-    <div class="support-card">
-        <div class="card-icon">🤝</div>
-        <h3>Community Support</h3>
-        <p>
-            Connect with trusted organizations and support groups.
-        </p>
-    </div>
-
-</section>
-
 <section class="support-form-card">
 
     <h2 class="section-title">Request Support</h2>
 
     <form id="supportForm" class="support-form">
 
-        <input
-        type="text"
-        placeholder="Report ID (Optional)">
+        <div class="form-field">
+            <label for="userLocation">Your Location (for first responders)</label>
+            <div class="location-input-wrapper">
+                <input
+                type="text"
+                id="userLocation"
+                placeholder="Enter location or click button to auto-share..."
+                <button type="button" id="getLocationBtn" class="secondary-button" style="padding: 0.65rem 1rem; margin-top: 0.5rem;">
+                    📍 Get Current Location
+                </button>
+            </div>
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+            <small style="color: var(--text-muted); display: block; margin-top: 0.5rem;">
+                Your precise location will help first responders reach you quickly if needed.
+            </small>
+        </div>
 
         <select required>
             <option value="">
@@ -188,70 +163,69 @@
     <div class="resource-grid">
 
         <div class="resource-card">
-            <h3>🧠 Mental Health</h3>
+            <h3>💜 Virtual Counseling</h3>
+            <p>Connect with therapists and trauma-informed counselors over secure video or chat.</p>
             <ul>
-                <li>Trauma recovery resources</li>
-                <li>Crisis counseling services</li>
-                <li>Peer support groups</li>
-                <li>Wellness planning tools</li>
+                <li><a href="https://www.betterhelp.com" target="_blank" rel="noopener">BetterHelp</a> – online therapy sessions</li>
+                <li><a href="https://www.7cups.com" target="_blank" rel="noopener">7 Cups</a> – chat support and licensed listeners</li>
+                <li><a href="https://www.psychologytoday.com/us/therapists" target="_blank" rel="noopener">Therapist Directory</a> – search virtual counselors</li>
             </ul>
+            <a class="resource-link" href="https://www.betterhelp.com" target="_blank" rel="noopener">Go to Virtual Counseling</a>
         </div>
 
         <div class="resource-card">
-            <h3>⚖️ Legal Resources</h3>
+            <h3>⚖️ Remote Legal Guidance</h3>
+            <p>Find legal advice for harassment, discrimination, or violence without visiting an office.</p>
             <ul>
-                <li>Know your rights</li>
-                <li>Evidence preservation guidance</li>
-                <li>Legal aid referrals</li>
-                <li>Reporting procedures</li>
+                <li><a href="https://www.womenslaw.org" target="_blank" rel="noopener">WomensLaw</a> – legal rights and options</li>
+                <li><a href="https://www.lawhelp.org" target="_blank" rel="noopener">LawHelp</a> – local legal aid resources</li>
+                <li><a href="https://www.freeadvice.com" target="_blank" rel="noopener">Free Advice</a> – virtual legal help</li>
             </ul>
+            <a class="resource-link" href="https://www.womenslaw.org" target="_blank" rel="noopener">Go to Legal Guidance</a>
         </div>
 
         <div class="resource-card">
-            <h3>🏠 Personal Safety</h3>
+            <h3>🧑‍🏫 School Counselor Support</h3>
+            <p>Access guidance from educators, counselors, and anti-bullying programs online.</p>
             <ul>
-                <li>Safety planning checklist</li>
-                <li>Trusted contact setup</li>
-                <li>Digital security tips</li>
-                <li>Emergency preparedness</li>
+                <li><a href="https://www.stopbullying.gov" target="_blank" rel="noopener">StopBullying.gov</a> – school safety and reporting</li>
+                <li><a href="https://www.nasponline.org" target="_blank" rel="noopener">NASP</a> – school psychologist resources</li>
+                <li><a href="https://www.careerwise.mnscu.edu" target="_blank" rel="noopener">Counselor directories</a> – find virtual school support</li>
             </ul>
+            <a class="resource-link" href="https://www.stopbullying.gov" target="_blank" rel="noopener">Go to School Counselor Support</a>
         </div>
 
-    </div>
-
-</section>
-
-<section>
-
-    <h2 class="section-title">
-        Your Support Journey
-    </h2>
-
-    <div class="timeline">
-
-        <div class="timeline-step">
-            <span>1</span>
-            Report Submitted
+        <div class="resource-card">
+            <h3>🩺 Virtual Healthcare Providers</h3>
+            <p>Speak with doctors and nurses safely over video for non-emergency care.</p>
+            <ul>
+                <li><a href="https://www.teladoc.com" target="_blank" rel="noopener">Teladoc</a> – telemedicine consultations</li>
+                <li><a href="https://www.doctorondemand.com" target="_blank" rel="noopener">Doctor On Demand</a> – virtual medical advice</li>
+                <li><a href="https://www.plushcare.com" target="_blank" rel="noopener">PlushCare</a> – remote healthcare visits</li>
+            </ul>
+            <a class="resource-link" href="https://www.teladoc.com" target="_blank" rel="noopener">Go to Virtual Healthcare</a>
         </div>
 
-        <div class="timeline-step">
-            <span>2</span>
-            Support Request
+        <div class="resource-card">
+            <h3>🤝 Community & Advocacy</h3>
+            <p>Join survivor networks, advocacy groups, and online peer support communities.</p>
+            <ul>
+                <li><a href="https://www.rainn.org" target="_blank" rel="noopener">RAINN</a> – sexual assault support</li>
+                <li><a href="https://www.thetrevorproject.org" target="_blank" rel="noopener">The Trevor Project</a> – LGBTQ+ crisis support</li>
+                <li><a href="https://www.safewise.com" target="_blank" rel="noopener">SafeWise</a> – community safety resources</li>
+            </ul>
+            <a class="resource-link" href="https://www.rainn.org" target="_blank" rel="noopener">Go to Community Advocacy</a>
         </div>
 
-        <div class="timeline-step">
-            <span>3</span>
-            Case Review
-        </div>
-
-        <div class="timeline-step">
-            <span>4</span>
-            Guidance Provided
-        </div>
-
-        <div class="timeline-step">
-            <span>5</span>
-            Follow-Up Support
+        <div class="resource-card">
+            <h3>🔒 Safety Planning & Digital Security</h3>
+            <p>Learn how to stay safe, keep evidence secure, and communicate without exposing yourself.</p>
+            <ul>
+                <li><a href="https://www.techsafety.org" target="_blank" rel="noopener">TechSafe</a> – digital security for survivors</li>
+                <li><a href="https://www.nnedv.org" target="_blank" rel="noopener">NNEDV</a> – safety planning guides</li>
+                <li><a href="https://www.stopbullying.gov" target="_blank" rel="noopener">Safe Reporting</a> – secure reporting tips</li>
+            </ul>
+            <a class="resource-link" href="https://www.techsafety.org" target="_blank" rel="noopener">Go to Safety Planning</a>
         </div>
 
     </div>

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <script defer src="assets/js/app.js"></script>
 </head>
-<body class="page-shell" data-page="emergency">
+<body class="page-shell emergency-page" data-page="emergency">
   <header class="site-header">
     <div class="topbar">
       <a class="brand" href="index.html">EqualVoice</a>
@@ -30,7 +30,7 @@
         <h1 class="hero-heading">Emergency help and trusted contact alerts</h1>
         <p class="hero-copy">Set up a trusted contact and use this page when you need urgent support. If geolocation is available, the system will capture your location for use in alerts.</p>
       </div>
-  
+      <img src="images/response.jpg" alt="Emergency response support" class="hero-image" style="max-width: 400px; width: 100%; height: 400px; object-fit: cover;">
     </section>
 
     <section class="form-card">
@@ -45,8 +45,11 @@
           <input id="trustedContactInfo" type="text" placeholder="Enter phone number or email" aria-required="true">
         </div>
       </div>
+
+
+
       <div class="button-row">
-        <button id="sendAlertButton" class="cta-button" type="button">Send trusted alert</button>
+        <button id="sendAlertButton" class="cta-button" type="button">notify contact</button>
       </div>
       <div id="geoStatus" class="status-banner">Geolocation status will appear here.</div>
       <div id="emergencyStatus" class="status-banner">You can send an alert once contact info is saved.</div>
